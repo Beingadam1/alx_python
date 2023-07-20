@@ -1,8 +1,8 @@
 def convert_to_celsius(fahrenheit):
-    convert = (fahrenheit - 32) / (9/5)
-    return convert
+    celsius = (5/9) * (fahrenheit - 32)
+    return celsius
 
-# print(convert_to_celsius(100))
-# print(convert_to_celsius(-40))
-# print(convert_to_celsius(-459.67))
-# print(convert_to_celsius(32))
+print(convert_to_celsius(100))
+print(convert_to_celsius(-40))
+print(convert_to_celsius(-459.67))
+print(convert_to_celsius(32))
