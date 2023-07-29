@@ -3,10 +3,10 @@ def best_score(a_dictionary):
     if a_dictionary is None:
         return None
 
-    # use max to find the highest value and return None if it empty
+    # use max to find the highest value and return None if it empty.
     b_score = max(a_dictionary.values(), default=None)
 
-    # loop over the dict to check if the current iteration is equal to b_score
+    # loop over the dict to check if the current iteration is equal to b_score and return the key.
     for key, value in a_dictionary.items():
         if value == b_score:
             return key
