@@ -24,13 +24,6 @@ class Square:
 
         self.__size = size
 
-    def area(self):
-        '''
-        Determine the area of the square
-        Returns: The square of the size
-        '''
-        return self.__size**2
-
     @property
     def size(self):
         '''Retrieves size of square'''
@@ -45,3 +38,12 @@ class Square:
             raise TypeError('size must be an integer')
         if value < 0:
             raise ValueError('size must be >= 0')
+
+        self.__size = value
+
+    def area(self):
+        '''
+        Determine the area of the square
+        Returns: The square of the size
+        '''
+        return self.__size**2
