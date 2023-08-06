@@ -1,16 +1,63 @@
-Rectangle = __import__('6-rectangle').Rectangle
+''' An empty class representing the base geometry.'''
 
-r = Rectangle(3, 5)
 
-print(r)
-print(dir(r))
+class BaseMetaClass(type):
+    """
+    overrides.
+    """
 
-try:
-    print("Rectangle: {} - {}".format(r.width, r.height))
-except Exception as e:
-    print("[{}] {}".format(e.__class__.__name__, e))
+    def __dir__(cls):
+        return [
+            attribute
+            for attribute in super().__dir__()
+            if attribute != '__init_subclass__'
+        ]
 
-try:
-    r2 = Rectangle(4, True)
-except Exception as e:
-    print("[{}] {}".format(e.__class__.__name__, e))
+
+class BaseGeometry(metaclass=BaseMetaClass):
+    """
+    Do nothing: By passing pass.
+    """
+
+    def __dir__(cls):
+        return [
+            attribute
+            for attribute in super().__dir__()
+            if attribute != '__init_subclass__'
+        ]
+
+    def area(self):
+        '''
+        Public instance method that raises an Exception
+        '''
+        raise Exception('area() is not implemented')
+
+    def integer_validator(self, name, value):
+        '''
+        Public instance method that validate a value
+        Attr:
+            name(string): the name string.
+            value(int): must be an integer greater than 0.
+        '''
+        self.name = name
+        self.value = value
+
+        if type(value) is not int:
+            raise TypeError('{} must be an integer'.format(name))
+
+        if value <= 0:
+            raise ValueError('{} must be greater than 0'.format(name))
+
+
+'''Rectangle class that inherit from BaseGeometry'''
+
+
+class Rectangle(BaseGeometry):
+
+    '''Initializing with and height'''
+
+    def __init__(self, width, height):
+        self.__width = width
+        self.__height = height
+        self.integer_validator('width', width)
+        self.integer_validator('height', height)
