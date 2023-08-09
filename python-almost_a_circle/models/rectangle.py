@@ -1,24 +1,10 @@
-'''
-Rectangle class that inherits from base class
-'''
+'''Rectangle class'''
+
 from models.base import Base
 
 
 class Rectangle(Base):
-    '''
-    Rectangle class method:
-        __innit__: initialises the class
-        getters and setters
-    '''
-
     def __init__(self, width, height, x=0, y=0, id=None):
-        '''
-        attributes :
-            width
-            height
-            x
-            y
-        '''
         super().__init__(id)
         self.width = width
         self.height = height
