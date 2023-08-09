@@ -31,56 +31,32 @@ class Rectangle(Base):
 
     @property
     def width(self):
-        '''Get the width'''
         return self.__width
 
     @width.setter
-    def width(self, new_width):
-        """Set the and Validates width."""
-        # if type(new_width) is not int:
-        #     raise TypeError("width must be an integer")
-        # if new_width <= 0:
-        #     raise ValueError("width must be > 0")
-        self.__width = new_width
+    def width(self, value):
+        self.__width = value
 
     @property
     def height(self):
-        """Get the height"""
         return self.__height
 
     @height.setter
-    def height(self, new_height):
-        """Set the and Validates height."""
-        # if type(new_height) is not int:
-        #     raise TypeError("height must be an integer")
-        # if new_height <= 0:
-        #     raise ValueError("height must be > 0")
-        self.__height = new_height
+    def height(self, value):
+        self.__height = value
 
     @property
     def x(self):
-        """Get the x-coordinate"""
         return self.__x
 
     @x.setter
-    def x(self, new_x):
-        """Set the x-coordinate and Validates x."""
-        # if type(new_x) is not int:
-        #     raise TypeError("x must be an integer")
-        # if new_x < 0:
-        #     raise ValueError("x must be >= 0")
-        self.__x = new_x
+    def x(self, value):
+        self.__x = value
 
     @property
     def y(self):
-        """Get the y-coordinate"""
         return self.__y
 
     @y.setter
-    def y(self, new_y):
-        """Set the y-coordinate and Validates y."""
-        # if type(new_y) is not int:
-        #     raise TypeError("y must be an integer")
-        # if new_y < 0:
-        #     raise ValueError("y must be >= 0")
-        self.__y = new_y
+    def y(self, value):
+        self.__y = value
