@@ -32,7 +32,7 @@ if __name__ == '__main__':
 
     # Tackle task
     # create query
-    query = 'SELECT * FROM state ORDER BY id ASC'
+    query = 'SELECT * FROM states ORDER BY id ASC'
 
     # execute query with cursor
     cur.execute(query)
