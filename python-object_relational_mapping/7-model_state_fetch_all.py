@@ -19,15 +19,15 @@ if __name__ == '__main__':
     database = f"mysql+mysqldb://{user}:{password}@localhost:3306/{db_name}"
     engine = create_engine(database)
 
-    # create a session for the database
+    # create a session
     Session = sessionmaker(bind=engine)
     session = Session()
 
     # execute query
     states = session.query(State).order_by(State.id).all()
 
-    for state in states:
-        print("{}: {}".format(state.id, state.name))
+    for item in states:
+        print('{}: {}'.format(item.id, item.name))
 
     # close session
     session.close()
