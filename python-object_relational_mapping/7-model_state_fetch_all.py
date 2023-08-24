@@ -16,7 +16,7 @@ if __name__ == '__main__':
     db_name = sys.argv[3]
 
     # connect to the database using create_engine
-    database = "mysql+mysqldb://{}:{}@localhost:3306/{}".format(user, password, db_name)
+    database = f"mysql+mysqldb://{user}:{password}@localhost:3306/{db_name}"
     engine = create_engine(database)
 
     # create a session for the database
