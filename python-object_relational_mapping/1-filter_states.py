@@ -1,12 +1,12 @@
-"""
-a script that lists all states with a name starting with N.
-"""
+'''
+Script that lists all states with a name starting with N.
+'''
 # import required modules
 import MySQLdb
 import sys
 
-if __name__ == "__main__":
-    # retrieve details from user argument.
+if __name__ == '__main__':
+    # arguement supplied by user
     user = sys.argv[1]
     password = sys.argv[2]
     db_name = sys.argv[3]
@@ -17,17 +17,20 @@ if __name__ == "__main__":
     )
 
     # create a cursor
-    cursor = database.cursor()
+    cur = database.cursor()
+
+    # Create query
+    query = 'SELECT * FROM states WHERE BINARY name LIKE "N%" ORDER BY id ASC'
 
     # select states that start with N
-    cursor.execute("SELECT * FROM states WHERE BINARY name LIKE 'N%' ORDER BY id ASC")
+    cur.execute(query)
 
     # Return results
-    result = cursor.fetchall()
+    result = cur.fetchall()
 
     for item in result:
         print(item)
 
     # close connections
-    cursor.close()
+    cur.close()
     database.close()
