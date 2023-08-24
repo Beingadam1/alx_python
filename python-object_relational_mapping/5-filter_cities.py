@@ -6,7 +6,7 @@ and lists all cities of that state, using the database
 import MySQLdb
 import sys
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     # arguement supplied by user
     user = sys.argv[1]
     password = sys.argv[2]
@@ -19,24 +19,20 @@ if __name__ == "__main__":
     )
 
     # create cursor
-    cursor = database.cursor()
+    cur = database.cursor()
 
     # create query
-    query = 'SELECT name\
-        FROM cities\
-        WHERE state_id = (SELECT id\
-        FROM states WHERE name = %s)'
-    cursor.execute(query, {'state_key': state_name})
+    cur.execute(
+        'SELECT cities.name FROM cities JOIN states ON \
+        cities.state_id = states.id WHERE states.name LIKE %s \
+        ORDER BY cities.id',
+        (state_name,),
+    )
 
-    # return results
-    result = cursor.fetchall()
-
-    for index, item in enumerate(result):
-        if index:
-            print(', ', end="")
-        print(item[0], end="")
-    print()
-
-    # close connections
-    cursor.close()
+    results = cur.fetchall()
+    list = []
+    for result in results:
+        list.append(result[0])
+    print(", ".join(list))
+    cur.close()
     database.close()
