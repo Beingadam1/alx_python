@@ -1,7 +1,7 @@
 '''
 Script that lists all states with a name starting with N.
 '''
-# import required modules
+# import modules
 import MySQLdb
 import sys
 
@@ -26,10 +26,10 @@ if __name__ == '__main__':
     cur.execute(query)
 
     # Return results
-    result = cur.fetchall()
+    results = cur.fetchall()
 
-    for item in result:
-        print(item)
+    for result in results:
+        print(result)
 
     # close connections
     cur.close()
